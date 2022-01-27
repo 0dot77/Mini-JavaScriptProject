@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+}
+
+h2 {
+    position:absolute;
+    color:black;
+}
+
+.dino {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    bottom:0px;
+    background-image: url('img/t-rex-main.png');
+    background-size: cover;
+}
+
+.obstacle {
+    position:absolute;
+    width: 60px;
+    height: 60px;
+    background: orange;
+    bottom : 0px;
+}
