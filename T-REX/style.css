@@ -18,8 +18,6 @@ h2 {
     width: 60px;
     height: 60px;
     bottom:0px;
-    background-image: url('img/t-rex-main.png');
-    background-size: cover;
 }
 
 .obstacle {
@@ -29,3 +27,27 @@ h2 {
     background: orange;
     bottom : 0px;
 }
+
+/* T-Rex */
+
+svg {
+    fill: #535353;
+  }
+  
+  [id=L],
+  [id=R] {
+    animation: leg 2s infinite steps(2);
+  }
+  
+  [id=R] {
+    animation-delay: -1s;
+  }
+  
+  @keyframes leg {
+    to {
+      transform: translateY(-10%);
+    }
+  }
+  svg {
+    max-width: 60vmin;
+  }
