@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Shizuru&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rowdies&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+}
+
+h1 {
+  font-family: "Rowdies", cursive;
+  display: flex;
+  margin-top: 50px;
+  font-size: 3rem;
+  justify-content: center;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: 400px 400px 400px;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+}
+
+div {
+  /* z-index: 1; */
+  font-family: "Rowdies", cursive;
+  display: flex;
+  margin-top: 5vh;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  font-size: 2rem;
+  border: 1px solid red;
+  border-radius: 50%;
+}
+
+div:hover {
+  color: white;
+  background-color: red;
+}
+
+/* 
+.score {
+  position: relative;
+  z-index: 0;
+}
+
+.score-display {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 60vw;
+  height: 60vh;
+  right: 20vw;
+  bottom: 20vh;
+  border-radius: 5%;
+  font-size: 150px;
+  color: rgba(0, 0, 0, 0.3);
+} */
