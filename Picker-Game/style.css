@@ -1,6 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Shizuru&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rowdies&display=swap");
 
+:root {
+  --main-font: "Rowdies", cursive;
+  --main-color: red;
+  --main-picked-color: white;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -11,12 +17,51 @@ body {
   overflow: hidden;
 }
 
-h1 {
-  font-family: "Rowdies", cursive;
+.title {
   display: flex;
+  font-family: var(--main-font);
+  justify-content: space-around;
   margin-top: 50px;
+  align-items: center;
+}
+
+@keyframes titleBluring {
+  from {
+    filter: blur(5px);
+  }
+  to {
+    filter: blur(0px);
+  }
+}
+
+h1 {
   font-size: 3rem;
-  justify-content: center;
+}
+
+.blur {
+  animation: titleBluring 1s ease-in-out;
+}
+
+h2 {
+  background-color: var(--main-color);
+  width: 200px;
+  font-size: 1rem;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.again {
+  font-family: var(--main-font);
+  border: none;
+  background: var(--main-color);
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+.again:hover {
+  color: var(--main-picked-color);
 }
 
 .container {
@@ -26,9 +71,9 @@ h1 {
   justify-items: center;
 }
 
-div {
+.picker {
   /* z-index: 1; */
-  font-family: "Rowdies", cursive;
+  font-family: var(--main-font);
   display: flex;
   margin-top: 5vh;
   justify-content: center;
@@ -36,32 +81,16 @@ div {
   width: 200px;
   height: 200px;
   font-size: 2rem;
-  border: 1px solid red;
+  border: 1px solid var(--main-color);
   border-radius: 50%;
 }
 
-div:hover {
-  color: white;
-  background-color: red;
+.picker:hover {
+  color: var(--main-picked-color);
+  background-color: var(--main-color);
 }
 
-/* 
-.score {
-  position: relative;
-  z-index: 0;
+.picked {
+  background: var(--main-color);
+  color: var(--main-picked-color);
 }
-
-.score-display {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.3);
-  width: 60vw;
-  height: 60vh;
-  right: 20vw;
-  bottom: 20vh;
-  border-radius: 5%;
-  font-size: 150px;
-  color: rgba(0, 0, 0, 0.3);
-} */
