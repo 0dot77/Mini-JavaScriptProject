@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap");
+
+:root {
+  --main-font: "Nanum Nyeongjo", serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgb(131, 58, 180);
+  background: linear-gradient(
+    180deg,
+    rgba(131, 58, 180, 0.8) 0%,
+    rgba(253, 29, 29, 0.8) 43%,
+    rgba(252, 176, 69, 0.8) 100%
+  );
+}
+
+@keyframes bumping {
+  from {
+  }
+  to {
+    font-size: 2rem;
+  }
+}
+
+@keyframes bluring {
+  from {
+    filter: blur(3px);
+  }
+  to {
+    filter: none;
+  }
+}
+
+.question {
+  font-family: var(--main-font);
+  text-align: center;
+  font-size: 2.5rem;
+  padding-bottom: 25px;
+  animation: bluring 3s ease forwards;
+}
+
+.submit {
+  font-family: var(--main-font);
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.year {
+  animation: bumping 1s ease-in-out forwards;
+}
+
+.range {
+  display: flex;
+  flex-direction: column;
+}
+
+.month-range {
+  width: 20vw;
+}
+.month-range__value {
+  padding-top: 10px;
+  text-align: center;
+}
+
+.day-value {
+  height: 25px;
+  border-radius: 0.6em;
+  border: none;
+}
+
+.day-value::placeholder {
+  font-family: var(--main-font);
+  text-align: center;
+}
+.btn {
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border-radius: 0.6em;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: center;
+  line-height: 1;
+  padding: 0.5em 2.8em;
+  text-decoration: none;
+  text-align: center;
+  border: none;
+}
+.btn:hover,
+.btn:focus {
+  color: #fff;
+  outline: 0;
+}
+
+.calcBtn,
+.again-btn {
+  height: 25px;
+  font-family: var(--main-font);
+  border-color: rgba(252, 176, 69, 0.8);
+  color: #fff;
+  box-shadow: 0 0 40px 40px rgba(252, 176, 69, 0.8) inset,
+    0 0 0 0 rgba(252, 176, 69, 0.8);
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+}
+.calcBtn:hover,
+.again-btn:hover {
+  box-shadow: 0 0 10px 0 rgba(252, 176, 69, 0.8) inset,
+    0 0 10px 4px rgba(252, 176, 69, 0.8);
+}
+
+.hidden {
+  display: none;
+}
+
+/* submit - after */
+
+.submit-after {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.result {
+  font-family: var(--main-font);
+  font-size: 1.5rem;
+  padding-bottom: 25px;
+  animation: bluring 1s ease infinite;
+}

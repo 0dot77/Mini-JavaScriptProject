@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Day Calculator</title>
+  </head>
+  <body>
+    <header class="question">
+      <p class="question-text">
+        당신이 기념하고 싶은 날까지 얼마나 남았을까요?
+      </p>
+    </header>
+    <main>
+      <form action="" class="submit">
+        <span class="year">2022년</span>
+        <div class="range">
+          <input
+            required
+            min="1"
+            max="12"
+            type="range"
+            step="1"
+            class="month-range"
+          />
+          <span class="month-range__value">12</span>
+        </div>
+        <input
+          required
+          maxlength="2"
+          type="text"
+          placeholder="일을 입력해주세요"
+          class="day-value"
+        />
+        <button class="calcBtn btn">계산하기</button>
+      </form>
+      <section class="submit-after">
+        <p class="result hidden">0일0시간0분0초 남았네요</p>
+        <button class="again-btn btn hidden">다시 계산하기</button>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
