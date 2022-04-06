@@ -7,7 +7,7 @@ const cors = require("cors");
 const bcrypt = require("bcrypt");
 const e = require("cors");
 
-const uri = process.env.DB_URI;
+const uri = "";
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -80,16 +80,34 @@ app.post("/login", async (req, res) => {
   }
 });
 
-app.get("/users", async (req, res) => {
+app.get("/user", async (req, res) => {
   const client = new MongoClient(uri);
+  const userId = req.query.userId;
 
   try {
     await client.connect();
     const database = client.db("app-data");
     const users = database.collection("users");
 
-    const returnedUsers = await users.find().toArray();
-    res.send(returnedUsers);
+    const query = { user_id: userId };
+    const user = await users.findOne(query);
+    res.send(user);
+  } finally {
+    await client.close();
+  }
+});
+
+app.get("/gendered-users", async (req, res) => {
+  const client = new MongoClient(uri);
+  const gender = req.query.gender;
+  try {
+    await client.connect();
+    const database = client.db("app-data");
+    const users = database.collection("users");
+    const query = { gender_identity: { $eq: gender } };
+    const foundUsers = await users.find(query).toArray();
+
+    res.send(foundUsers);
   } finally {
     await client.close();
   }
@@ -105,8 +123,24 @@ app.put("/user", async (req, res) => {
     const users = database.collection("users");
 
     const query = { user_id: formData.user_id };
-  } catch (err) {
-    console.log(err);
+    const updateDocument = {
+      $set: {
+        first_name: formData.first_name,
+        dob_day: formData.dob_day,
+        dob_month: formData.dob_month,
+        dob_year: formData.dob_year,
+        show_gender: formData.dob_year,
+        gender_identity: formData.gender_identity,
+        gender_interest: formData.gender_interest,
+        url: formData.url,
+        about: formData.about,
+        matches: formData.matches,
+      },
+    };
+    const insertUser = await users.updateOne(query, updateDocument);
+    res.send(insertUser);
+  } finally {
+    await client.close();
   }
 });
 
